@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .wrap {
+            width: 500px;
+            height: 500px;
+            margin: 100px auto;
+        }
+
+        .wrap div {
+            display: inline-block;
+            width: 80px;
+            height: 50px;
+            border: 1px solid #bbb;
+            text-align: center;
+            line-height: 50px;
+            font-size: 20px;
+        }
+
+        .wrap ul li {
+            list-style: none;
+            width: 300px;
+            height: 50px;
+            border: 1px solid #bbb;
+            margin-top: 5px;
+            text-align: center;
+            line-height: 50px;
+            font-size: 30px;
+            color: #333;
+        }
+
+        .wrap div.box4 {
+            width: 300px;
+        }
+
+        /* .wrap .box4{
+            display:none;
+        } */
+    </style>
+</head>
+
+<body>
+    <div class="wrap" id="wrapper">
+        <div class="box1 box">box1</div>
+        <div class="box2 box">box2</div>
+        <div class="box3 box">box3</div>
+        <ul>
+            <li class="zero">0</li>
+            <li class="one">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+        </ul>
+        <div class="box4 box">
+            <p>hello world!!!</p>
+        </div>
+        <p>Today Is Firday ~~</p>
+        <div class="box"></div>
+        <form>
+            <input name="email" disabled="disabled" />
+            <input type="button" value="Input Button" />
+            <input type="checkbox" />
+
+            <input type="file" />
+            <input type="hidden" />
+            <input type="image" />
+
+            <input type="password" />
+            <input type="radio" />
+            <input type="reset" />
+
+            <input type="submit" />
+            <input type="text" />
+            <select>
+                <option>Option</option>
+            </select>
+
+            <textarea></textarea>
+            <button>Button</button>
+
+        </form>
+
+        <form>
+            <input type="checkbox" name="newsletter" checked="checked" value="Daily" />
+            <input type="checkbox" name="newsletter" value="Weekly" />
+            <input type="checkbox" name="newsletter" checked="checked" value="Monthly" />
+        </form>
+
+        <select>
+            <option value="1">Flowers</option>
+            <option value="2" selected="selected">Gardens</option>
+            <option value="3">Trees</option>
+        </select>
+
+
+
+    </div>
+    <script src="./jquery.js"></script>
+    <script>
+        // 基本选择器 一个参数  id  class  element  *
+
+        // console.log($('#wrapper'))
+        // $('#wrapper').css('backgroundColor','#f40')
+
+        // $('.wrap').css('backgroundColor','pink');
+        // console.log($('.box'))
+        // $('.box').css('color','blue')
+
+        // console.log($('ul'))
+        // $('ul li').css('color','#abcdef')
+
+        // console.log($('*'))
+
+        // 基本选择器 两个参数  (selector1,selector2)
+
+        // console.log($('p','div'))
+        // console.log($('p','.box'))
+
+        // 层级选择器 
+
+        // 在给定的祖先元素下匹配所有的后代元素
+        // $('.box p').css('color','red')
+        // $('.wrap p').css('color','red')
+
+        // 在给定的父元素下匹配所有的子元素
+        // $('.wrap > p').css('color','red')
+
+        // 匹配所有紧接在 prev 元素后的 next 元素
+        // $('ul + div').css('backgroundColor','red')
+        // $('.box1 + .box').css('backgroundColor','green');
+
+        // 匹配 prev 元素之后的所有 siblings 元素
+        // $('.box1 ~ .box').css('backgroundColor','green');
+
+        // 基本筛选器
+        // :first 获取第一个元素
+        // $('ul li:first').css('backgroundColor','green');
+        // $('.box:first').css('backgroundColor','green');
+
+        // :not()去除所有与给定选择器匹配的元素
+        // $('.box:not(".box1")').css('backgroundColor','red')
+
+        // :even 匹配所有索引值为偶数的元素，从 0 开始计数
+        // $('ul li:even').css('backgroundColor','red')
+
+        // :odd 匹配所有索引值为奇数的元素，从 0 开始计数
+        // $('ul li:odd').css('backgroundColor','yellow')
+
+        // :eq(index) 匹配一个给定索引值的元素
+        // $('ul li:eq(1)').css('backgroundColor','yellow')
+
+        // :last  获取最后个元素
+        // $('ul li:last').css('backgroundColor','yellow')
+
+        // 内容 
+        // :contains() 匹配包含给定文本的元素
+
+        // $('li:contains("1")').css('color','red')
+        // $('p:contains("hello world!!!")').css('color', 'red')
+
+        // :empty 匹配所有不包含子元素或者文本的空元素
+        // $('.box:empty').css('backgroundColor','yellow')
+
+        // :has() 匹配含有选择器所匹配的元素的元素
+        // $('.box:has(p)').css('backgroundColor','yellow')
+
+        // :parent 匹配含有子元素或者文本的元素  作为父级的元素
+        // $('.box:parent').css('backgroundColor','yellow')
+
+        // 可见性
+        // :hidden  匹配所有不可见元素，或者type为hidden的元素
+        // console.log($('.box:hidden'))
+
+        // :visible 匹配所有的可见元素
+        // console.log($('.box:visible'))
+
+
+        // 属性
+        // 匹配包含给定属性的元素
+        // $('div[id]').css('backgroundColor','red');
+
+        // 匹配给定的属性是某个特定值的元素
+        // $('.box[class="box1 box"]').css('backgroundColor','red');
+
+        // 匹配所有不含有指定的属性，或者属性不等于特定值的元素
+        // $('.box[class!="box1 box"]').css('backgroundColor','red');
+
+        // 匹配给定的属性是以某些值开始的元素
+        // $('.box[class^="box"]').css('backgroundColor','red');
+
+        // 子元素选择器
+        // :first-child 匹配所给选择器( :之前的选择器)的第一个子元素
+        // $('ul li:first-child').css('backgroundColor','red');
+
+        // :first-of-type  匹配父元素中第一个此类型的元素
+        // $('p:first-of-type').css('color','blue')
+
+        // :last-child  匹配最后一个子元素
+        // $('ul li:last-child').css('color','blue')
+
+        // :last-of-type 匹配父元素中最后一个此类型的元素
+
+        // :nth-child 匹配其父元素下的第N个子或奇偶元素
+        // $('ul li:nth-child(2)').css('backgroundColor','blue')
+
+        // 表单
+
+        // :input 匹配所有 input, textarea, select 和 button 元素
+        // console.log($(':input'))
+
+        // :text 匹配所有的单行文本框
+        // console.log($(':text'))
+
+        // :checkbox 匹配所有复选框
+        // console.log($(':checkbox'))
+
+        // 表单对象属性
+        // :enabled 匹配所有可用元素
+        // console.log($(':enabled'))
+
+        // :disabled 匹配所有不可用元素
+        // console.log($(':disabled'))
+
+        // :checked 匹配所有选中的被选中元素(复选框、单选框等，select中的option)
+        // console.log($(':checked'))
+
+        // :selected 匹配所有选中的option元素
+        // console.log($(':selected'))
+
+        // $(fn)  $(document).ready()的简写
+
+        // $(function(){
+        //     console.log(12)
+        // })
+
+
+        // console.log($('p','.box'))
+        // $('p','.box').css('color','red')
+
+        // jq对象访问
+        // each 以每一个匹配的元素作为上下文来执行一个函数。
+        $('li').each(function (i, ele) {
+            // console.log(i,ele)
+            // console.log($(this))
+            // $(this).css('color','red')
+        })
+
+        // length jQuery 对象中元素的个数。
+        // console.log($('li').length)
+
+        // 数据缓存 
+        // data 在元素上存放或读取数据,返回jQuery对象
+
+        // $(".wrap").data("blah");  // undefined
+        // $(".wrap").data("blah", "hello");  // blah设置为hello
+        // $(".wrap").data("blah");  // hello
+        // $(".wrap").data("blah", 86);  // 设置为86
+        // $(".wrap").data("blah");  //  86
+        // $(".wrap").removeData("blah");  //移除blah
+        // $(".wrap").data("blah");  // undefined
+
+        // index() 获得 index 位置的元素。可以是 DOM 元素或 jQuery 选择器。
+
+        // $('li').index($('.fir'));
+
+        // get(index)取得其中一个匹配的元素。 num表示取得第几个匹配的元素。从0开始，返回的是DOM对象
+
+
+
+
+    </script>
+</body>
+
+</html>
